@@ -13,7 +13,7 @@ public class ApplicationUser implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    public Long id;
     String username;
     String password;
     String bio;

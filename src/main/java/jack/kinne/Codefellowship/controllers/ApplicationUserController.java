@@ -62,6 +62,6 @@ public class ApplicationUserController {
     public String getAllProfiles(Model m) {
         List<ApplicationUser> users = applicationUserRepository.findAll();
         m.addAttribute("users", users);
-        return "allProfiles";
+        return "profiles";
     }
 }
