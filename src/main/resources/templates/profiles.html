@@ -20,7 +20,7 @@
 <h1>All The Profiles.  All of them.</h1>
 
 <div th:each="user : ${users}" class="users">
-    <h3 th:id="${user.id}" th:text="ID: ${user.id}">id</h3>
+    <h3 th:id="${user.id}" th:text="${user.id}">id</h3>
     <p>
         Username: <span th:text="${user.username}"></span>
     </p>
