@@ -17,7 +17,7 @@ public class ApplicationUser implements UserDetails {
     String username;
     String password;
     String bio;
-    String pictureURL = "https://i.imgur.com/qgQLw.jpg";
+    public String pictureURL = "https://i.imgur.com/qgQLw.jpg";
 
     String fullName;
 
