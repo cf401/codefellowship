@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Root</title>
+
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="layout.css">
+    <link rel="stylesheet" href="modules.css">
+</head>
+<body>
+<h1>Autobots, rollout!</h1>
+<div th:if="${user}">
+    Hello, <span th:text="${user.name}"></span>!
+    <a href="logout">Log out</a>
+</div>
+<div th:unless="${user}">
+    <a href="/login">Log in</a>
+    <a href="/signup">Sign up</a>
+</div>
+</body>
+</html>
