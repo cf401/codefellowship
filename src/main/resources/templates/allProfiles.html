@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>All The Profiles</title>
+
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="layout.css">
+    <link rel="stylesheet" href="modules.css">
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a href="/songs">Songs</a></li>
+        <li><a href="/sayHello">Say Hello</a></li>
+        <li><a href="/albums">Albums</a></li>
+    </ul>
+</nav>
+
+<h1>All The Profiles.  All of them.</h1>
+
+<div th:each="profile : ${profiles}" class="profile">
+    <h3 th:id="${profile.id}" th:text="${profile.id}">id</h3>
+    <p>
+        Produced by <span th:text="${profile.username}"></span>
+    </p>
+</div>
+
+</body>
+</html>
