@@ -1,4 +1,10 @@
-
+/* body */
+body {
+    display: flex;
+    flex-direction: column;
+    min-width: 100vh;
+    justify-content: space-evenly;
+}
 /* nav bar */
 nav{
     background-color: black;
@@ -19,8 +25,22 @@ ul {
 }
 
 .profilePictures {
-    height: 100px;
-    width: 86px;
+    height: 75px;
+    width: 64px;
+}
+
+
+
+/* footer */
+footer ul {
+    background-color: black;
+    list-style: none;
+    margin-bottom: 0px;
+
+}
+
+footer {
+    flex: 0 0 50px;
 }
 
 

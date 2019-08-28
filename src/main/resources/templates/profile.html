@@ -18,18 +18,11 @@
 </h1>
 <img th:src="${user.pictureURL}" class="profilePictures">
 
-<form method="POST" action="/createPost">
-    <label for="body">Message: </label> <input name="body" id="body"/>
-    <input type="submit" />
-</form>
+<div th:replace="fragments/postform :: postform"></div>
 
-<div th:each="post : ${user.posts}" class="posts">
-    <h3 th:id="${post.created}" th:text="${post.created}">id</h3>
-    <p>
-        Post: <span th:text="${post.body}"></span>
-    </p>
-</div>
+<div th:replace="fragments/posts :: posts"></div>
 
+<div th:replace="fragments/footer :: footer"></div>
 
 </body>
 </html>
