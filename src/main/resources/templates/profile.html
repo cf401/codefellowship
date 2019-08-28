@@ -16,9 +16,20 @@
 <h1>
     Profile: <span th:text="${user.username}"></span>!
 </h1>
-    <img th:src="${user.pictureURL}" class="profilePictures">
-<div>
+<img th:src="${user.pictureURL}" class="profilePictures">
 
+<form method="POST" action="/createPost">
+    <label for="body">Message: </label> <input name="body" id="body"/>
+    <input type="submit" />
+</form>
+
+<div th:each="post : ${user.posts}" class="posts">
+    <h3 th:id="${post.created}" th:text="${post.created}">id</h3>
+    <p>
+        Post: <span th:text="${post.body}"></span>
+    </p>
 </div>
+
+
 </body>
 </html>
