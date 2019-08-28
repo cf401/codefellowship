@@ -2,15 +2,14 @@ package jack.kinne.Codefellowship.models;
 
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.GrantedAuthority;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
+import javax.persistence.*;
 import java.util.Collection;
+import java.util.List;
 
 @Entity
 public class ApplicationUser implements UserDetails {
-
+    //vars
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long id;
@@ -21,14 +20,19 @@ public class ApplicationUser implements UserDetails {
 
     String fullName;
 
+    // normal, boring, one-to-many annotations
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "owner")
+    List<Post> posts;
+
+    //constructors
     public ApplicationUser(String username, String password, String fullName) {
         this.username = username;
         this.password = password;
         this.fullName = fullName;
     }
-
     public ApplicationUser() {}
 
+    //methods
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return null;
@@ -62,5 +66,13 @@ public class ApplicationUser implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    public List<Post> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(List<Post> posts) {
+        this.posts = posts;
     }
 }

@@ -1,7 +1,49 @@
-.profilePictures {
-  height: 100px;
-    width: 86px;
+/* body */
+body {
+    display: flex;
+    flex-direction: column;
+    min-width: 100vh;
+    justify-content: space-evenly;
 }
+/* nav bar */
+nav{
+    background-color: black;
+}
+nav li {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: row-reverse;
+}
+
+ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: row-reverse;
+}
+
+.profilePictures {
+    height: 75px;
+    width: 64px;
+}
+
+
+
+/* footer */
+footer ul {
+    background-color: black;
+    list-style: none;
+    margin-bottom: 0px;
+
+}
+
+footer {
+    flex: 0 0 50px;
+}
+
+
 
 /* Sections/Article */
 

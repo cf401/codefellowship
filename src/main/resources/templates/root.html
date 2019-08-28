@@ -10,21 +10,19 @@
     <link rel="stylesheet" href="modules.css">
 </head>
 <body>
-<nav>
-    <ul>
-        <li><a href="profiles">All Profiles</a></li>
-        <li><a href="profile">My Profile</a></li>
-        <li><a href="logout">Log out</a></li>
-    </ul>
-</nav>
+
+<div th:replace="fragments/nav :: nav"></div>
+
 <h1>Autobots, rollout!</h1>
-<div th:if="${user}">
-    Hello, <span th:text="${user.name}"></span>!
+<div th:if="${activeUser}">
+    Hello, <span th:text="${activeUser.name}"></span>!
     <a href="logout">Log out</a>
 </div>
-<div th:unless="${user}">
+<div th:unless="${activeUser}">
     <a href="/login">Log in</a>
     <a href="/signup">Sign up</a>
 </div>
+
+<div th:replace="fragments/footer :: footer"></div>
 </body>
 </html>

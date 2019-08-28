@@ -1,13 +1,16 @@
 # Challenge Summary
 <!-- Short summary or background information -->
-Demonstrate basic understanding of Spring M.V.C.'s OAuth
+- Demonstrate basic understanding of Spring M.V.C.'s OAuth
+- Create profile, profiles, profile by id, login, pages.
+- Create posts owned by user in a many to one relationship.
 
 ## Challenge Description
 <!-- Description of the challenge -->
 ```
 - create a profile page
 - create a profile page by user
-- login, signup, root.
+- login, signup, root protected by Oauth.
+- create posts and tie to users.
 ```
 
 ## to run:
@@ -21,12 +24,13 @@ Demonstrate basic understanding of Spring M.V.C.'s OAuth
 
 ## for basic functionality go to:
 - navigate on a browser to : http://localhost:8080/
-- You will see the root!  Click Singup or login.
+- You will see the root!  Click Signup or login.
 - navigate on a browser to : http://localhost:8080/profile
-- You will see your profile page.
+- You will see your profile page -- you will see all posts for user.
 - navigate on a browser to : http://localhost:8080/profile/<number>
-- You will see a particular profile page.
-
+- You will see a particular profile page and posts.
+- navigate on a browser to : http://localhost:8080/profiles
+- You will see all profiles.
 
 ## Credits and Contributions
 Nick Paro
@@ -34,3 +38,4 @@ Fabian Brooks
 Matt Stuhring
 Travis Cox
 Melfi Perez
+@Bomibear

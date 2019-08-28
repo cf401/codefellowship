@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Single Album</title>
+    <title>Profile</title>
 
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="base.css">
@@ -10,20 +10,19 @@
     <link rel="stylesheet" href="modules.css">
 </head>
 <body>
-<nav>
-    <ul>
-        <li><a href="profiles">All Profiles</a></li>
-        <li><a href="profile">My Profile</a></li>
-        <li><a href="logout">Log out</a></li>
-    </ul>
-</nav>
+
+<div th:replace="fragments/nav :: nav"></div>
 
 <h1>
     Profile: <span th:text="${user.username}"></span>!
 </h1>
-    <img th:src="${user.pictureURL}" class="profilePictures">
-<div>
+<img th:src="${user.pictureURL}" class="profilePictures">
 
-</div>
+<div th:replace="fragments/postform :: postform"></div>
+
+<div th:replace="fragments/posts :: posts"></div>
+
+<div th:replace="fragments/footer :: footer"></div>
+
 </body>
 </html>
