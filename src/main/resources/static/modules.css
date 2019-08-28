@@ -1,7 +1,29 @@
+
+/* nav bar */
+nav{
+    background-color: black;
+}
+nav li {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: row-reverse;
+}
+
+ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: row-reverse;
+}
+
 .profilePictures {
-  height: 100px;
+    height: 100px;
     width: 86px;
 }
+
+
 
 /* Sections/Article */
 
