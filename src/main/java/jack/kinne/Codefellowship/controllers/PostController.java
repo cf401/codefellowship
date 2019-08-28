@@ -5,12 +5,14 @@ import jack.kinne.Codefellowship.models.ApplicationUserRepository;
 import jack.kinne.Codefellowship.models.Post;
 import jack.kinne.Codefellowship.models.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.security.Principal;
 
+@Controller
 public class PostController {
 
     @Autowired
@@ -28,7 +30,7 @@ public class PostController {
         postRepository.save(newPost);
 
         m.addAttribute("post", newPost);
-        
+
         return new RedirectView("/profile");
     }
 }
