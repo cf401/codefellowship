@@ -37,24 +37,37 @@ public class PostController {
 
     @PostMapping("/subscribe")
     public RedirectView subscribe(String subTo, Principal p, Model m){
-
+        //save both users
         ApplicationUser me = applicationUserRepository.findByUsername(p.getName());
         ApplicationUser subbing = applicationUserRepository.findByUsername(subTo);
-
+        //pass into model
         m.addAttribute("user", me);
-
         //add users to list
         me.addSubTo(subbing);
         //add reverse
         subbing.addSubBy(me);
-
+        //save to PSQL
         applicationUserRepository.save(me);
         applicationUserRepository.save(subbing);
+        //return  view
+        return new RedirectView( "/profiles");
+    }
 
-
-        //Post newPost = new Post(body, u);
-        //postRepository.save(newPost);
-
+    @PostMapping("/unsubscribe")
+    public RedirectView unsubscribe(String subTo, Principal p, Model m){
+        //save both users
+        ApplicationUser me = applicationUserRepository.findByUsername(p.getName());
+        ApplicationUser target = applicationUserRepository.findByUsername(subTo);
+        //pass into model
+        m.addAttribute("user", me);
+        //add users to list
+        me.removeSubTo(target);
+        //add reverse
+        target.removeSubBy(me);
+        //save to PSQL
+        applicationUserRepository.save(me);
+        applicationUserRepository.save(target);
+        //return  view
         return new RedirectView( "/profiles");
     }
 
