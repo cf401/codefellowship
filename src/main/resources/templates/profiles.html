@@ -20,6 +20,19 @@
     <p>
         Username: <span th:text="${user.username}"></span>
     </p>
+<!--    div.  conditional statement. if its me, don't show the button.
+        if i'm subscribed, show me the unsubscribe. wrap button in form.
+        hidden input tag with the user id -->
+<!--        p . getname soemthing?-->
+    <form th:if="!${u.getSubscribedTo().contains(user)}" method="POST" action="/subscribe">
+        <button type="submit" class="sub" style="background-color: #04c998">Subscribe</button>
+        <input type="hidden" name="subTo" th:value="${user.username}">
+    </form>
+
+    <form th:if="${u.getSubscribedTo().contains(user)}" method="POST" action="/unsubscribe">
+        <button type="submit" class="sub">UnSubcribe</button>
+        <input type="hidden" name="subTo" th:value="${user.username}">
+    </form>
 
     <img th:src="${user.pictureURL}" class="profilePictures">
 

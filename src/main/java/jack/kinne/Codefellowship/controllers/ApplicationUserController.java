@@ -59,9 +59,11 @@ public class ApplicationUserController {
     }
 
     @GetMapping("/profiles")
-    public String getAllProfiles(Model m) {
+    public String getAllProfiles(Principal p, Model m) {
         List<ApplicationUser> users = applicationUserRepository.findAll();
         m.addAttribute("users", users);
+        ApplicationUser u = applicationUserRepository.findByUsername(p.getName());
+        m.addAttribute("u", u);
         return "profiles";
     }
 }

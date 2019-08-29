@@ -3,6 +3,7 @@ package jack.kinne.Codefellowship.models;
 import org.hibernate.annotations.CreationTimestamp;
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.ArrayList;
 
 @Entity
 public class Post {
@@ -63,4 +64,5 @@ public class Post {
     public void setOwner(ApplicationUser owner) {
         this.owner = owner;
     }
+
 }
