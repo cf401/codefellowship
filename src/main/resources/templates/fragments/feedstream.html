@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<div th:fragment="feedstream">
+
+    <div th:each="u : ${user.subscribedTo}" class="feeds">
+
+        <div th:each="post : ${u.posts}" class="posts">
+            <h3 th:id="${post.created}" th:text="${post.created}">id</h3>
+            <p>
+                Post: <span th:text="${post.body}"></span>
+            </p>
+        </div>
+
+    </div>
+</div>

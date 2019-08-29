@@ -32,10 +32,10 @@ public class ApplicationUser implements UserDetails {
             name = "subscribes",
             joinColumns = @JoinColumn(name = "subscribedTo"),
             inverseJoinColumns = @JoinColumn(name = "subscribedBy"))
-    ArrayList<ApplicationUser> subscribedTo;
+    List<ApplicationUser> subscribedTo;
 
     @ManyToMany(mappedBy = "subscribedTo")
-    ArrayList<ApplicationUser> subscribedBy;
+    List<ApplicationUser> subscribedBy;
 
     //constructors
     public ApplicationUser(String username, String password, String fullName) {
@@ -89,7 +89,7 @@ public class ApplicationUser implements UserDetails {
         this.posts = posts;
     }
 
-    public ArrayList<ApplicationUser> getSubscribedTo() {
+    public List<ApplicationUser> getSubscribedTo() {
         return subscribedTo;
     }
 
@@ -97,7 +97,7 @@ public class ApplicationUser implements UserDetails {
         this.subscribedTo = subscribedTo;
     }
 
-    public ArrayList<ApplicationUser> getSubscribedBy() {
+    public List<ApplicationUser> getSubscribedBy() {
         return subscribedBy;
     }
 

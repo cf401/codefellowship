@@ -7,6 +7,7 @@ import jack.kinne.Codefellowship.models.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -47,9 +48,20 @@ public class PostController {
         //add reverse
         subbing.addSubBy(me);
 
+        applicationUserRepository.save(me);
+        applicationUserRepository.save(subbing);
+
+
         //Post newPost = new Post(body, u);
         //postRepository.save(newPost);
 
         return new RedirectView( "/profiles");
+    }
+
+    @GetMapping("/feed")
+    public String getProfile(Principal p, Model m) {
+        ApplicationUser u = applicationUserRepository.findByUsername(p.getName());
+        m.addAttribute("user", u);
+        return "feed";
     }
 }

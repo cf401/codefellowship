@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="layout.css">
+    <link rel="stylesheet" href="modules.css">
+</head>
+<body>
+
+<div th:replace="fragments/nav :: nav"></div>
+
+<h1>
+    Welcome to your Feed, <span th:text="${user.username}"></span>.
+</h1>
+<img th:src="${user.pictureURL}" class="profilePictures">
+
+<div th:replace="fragments/postform :: postform"></div>
+
+<div th:replace="fragments/feedstream :: feedstream"></div>
+
+<div th:replace="fragments/footer :: footer"></div>
+
+</body>
+</html>
