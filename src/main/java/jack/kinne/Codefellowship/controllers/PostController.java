@@ -46,7 +46,7 @@ public class PostController {
         me.addSubTo(subbing);
         //add reverse
         subbing.addSubBy(me);
-        
+
         //Post newPost = new Post(body, u);
         //postRepository.save(newPost);
 
