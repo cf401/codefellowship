@@ -33,4 +33,23 @@ public class PostController {
 
         return new RedirectView("/profile");
     }
+
+    @PostMapping("/subscribe")
+    public RedirectView subscribe(String subTo, Principal p, Model m){
+
+        ApplicationUser me = applicationUserRepository.findByUsername(p.getName());
+        ApplicationUser subbing = applicationUserRepository.findByUsername(subTo);
+
+        m.addAttribute("user", me);
+
+        //add users to list
+        me.addSubTo(subbing);
+        //add reverse
+        subbing.addSubBy(me);
+        
+        //Post newPost = new Post(body, u);
+        //postRepository.save(newPost);
+
+        return new RedirectView( "/profiles");
+    }
 }

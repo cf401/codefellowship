@@ -4,6 +4,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -13,6 +14,7 @@ public class ApplicationUser implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long id;
+    @Column(unique = true)
     String username;
     String password;
     String bio;
@@ -23,6 +25,17 @@ public class ApplicationUser implements UserDetails {
     // normal, boring, one-to-many annotations
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "owner")
     List<Post> posts;
+
+    //subscribed to and subscribed by
+    @ManyToMany
+    @JoinTable(
+            name = "subscribes",
+            joinColumns = @JoinColumn(name = "subscribedTo"),
+            inverseJoinColumns = @JoinColumn(name = "subscribedBy"))
+    ArrayList<ApplicationUser> subscribedTo;
+
+    @ManyToMany(mappedBy = "subscribedTo")
+    ArrayList<ApplicationUser> subscribedBy;
 
     //constructors
     public ApplicationUser(String username, String password, String fullName) {
@@ -74,5 +87,37 @@ public class ApplicationUser implements UserDetails {
 
     public void setPosts(List<Post> posts) {
         this.posts = posts;
+    }
+
+    public ArrayList<ApplicationUser> getSubscribedTo() {
+        return subscribedTo;
+    }
+
+    public void setSubscribedTo(ArrayList<ApplicationUser> subscribedTo) {
+        this.subscribedTo = subscribedTo;
+    }
+
+    public ArrayList<ApplicationUser> getSubscribedBy() {
+        return subscribedBy;
+    }
+
+    public void setSubscribedBy(ArrayList<ApplicationUser> subscribedBy) {
+        this.subscribedBy = subscribedBy;
+    }
+
+    public void addSubTo(ApplicationUser u){
+        subscribedTo.add(u);
+    }
+
+    public void addSubBy(ApplicationUser u){
+        subscribedBy.add(u);
+    }
+
+    public void removeSubTo(ApplicationUser u){
+        subscribedTo.remove(u);
+    }
+
+    public void removeSubBy(ApplicationUser u){
+        subscribedBy.remove(u);
     }
 }
